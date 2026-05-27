@@ -1,15 +1,22 @@
+   
+    
 body {
-  background: #121212;
-  color: white;
-  font-family: Arial;
+    margin: 0;
+    font-family: Arial;
+    background: #000000;
+    min-height: 100vh;
 }
-
 .container {
   width: 400px;
   margin: 50px auto;
   background: #762020;
   padding: 20px;
   border-radius: 12px;
+  color: white;
+
+}
+h1{
+    color: #000000;
 }
 
 input {
