@@ -1,12 +1,35 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-export class App {
-  protected readonly title = signal('angi-app');
+export class AppComponent {
+
+  newTask = '';
+  tasks: { title: string; completed: boolean }[] = [];
+
+  addTodo() {
+
+    if (this.newTask.trim() !== '') {
+
+      this.tasks.push({
+        title: this.newTask,
+        completed: false
+      });
+
+      this.newTask = '';
+    }
+  }
+
+  deleteTodo(index: number) {
+
+    this.tasks.splice(index, 1);
+
+  }
 }
